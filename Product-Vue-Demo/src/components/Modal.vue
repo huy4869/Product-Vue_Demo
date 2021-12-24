@@ -14,7 +14,7 @@
               type="text"
               class="textbox"
               placeholder="Title"
-              v-model="Title"
+              v-model="product.title"
             /><!---->
           </div>
           <div class="row item-space-between">
@@ -24,7 +24,7 @@
               type="text"
               class="textbox"
               placeholder="Tag"
-              v-model="Tag"
+              v-model="product.tag"
             /><!---->
           </div>
           <div class="row item-space-between">
@@ -34,7 +34,7 @@
               type="text"
               class="textbox"
               placeholder="Link"
-              v-model="Link"
+              v-model="product.link"
             /><!---->
           </div>
           <div class="row item-space-between">
@@ -44,7 +44,7 @@
               class="textbox"
               rows="7"
               placeholder="Add your note to your product"
-              v-model="Description"
+              v-model="product.description"
             ></textarea>
           </div>
         </div>
@@ -81,11 +81,15 @@ export default {
       },
     };
   },
+  props: {
+    products: Array
+  },
   methods: {
     close() {
       this.$emit("close");
     },
     addProduct() {
+      this.products.push(this.product)
     },
     addProductToList() {
       let product = this.product;
@@ -95,6 +99,8 @@ export default {
       } else {
         product.tags = [];
       }
+      this.addProduct();
+      this.close();
 
     },
   },

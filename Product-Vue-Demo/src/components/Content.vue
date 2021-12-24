@@ -29,7 +29,7 @@
             :key="index"
             :product="product"
           ></product>
-          <Modal v-show="isModalVisible" @close="closeModal" />
+          <Modal v-show="isModalVisible" :products="products" @close="closeModal" />
         </div>
       </div>
     </div>
@@ -50,12 +50,6 @@ export default {
     closeModal() {
       this.isModalVisible = false;
     },
-    addProduct() {
-      this.products.push(product)
-    }
-  },
-  props: {
-    product: Object
   },
   data() {
     return {

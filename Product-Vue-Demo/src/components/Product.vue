@@ -1,9 +1,9 @@
 <template>
   <div id="product">
-    <div  class="title">title + {{product.title}}</div>
-    <div class="">tag + {{product.title}}</div>
-    <div class="">link</div>
-    <div class="">description</div>
+    <div  class="title">  {{product.title}}</div>
+    <div class="">  {{product.description}}</div>
+    <div class=""> {{product.tags}}</div>
+    <div class=""> {{product.link}}</div>
     <br /> 
   </div>
 </template>
