@@ -1,8 +1,9 @@
 <template>
   <div class="wrapper-container">
     <side-bar />
-    <con-tent />
     <top />
+    <con-tent />
+
   </div>
 </template>
 

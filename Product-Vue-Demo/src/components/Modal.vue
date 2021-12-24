@@ -14,6 +14,7 @@
               type="text"
               class="textbox"
               placeholder="Title"
+              v-model="Title"
             /><!---->
           </div>
           <div class="row item-space-between">
@@ -23,6 +24,7 @@
               type="text"
               class="textbox"
               placeholder="Tag"
+              v-model="Tag"
             /><!---->
           </div>
           <div class="row item-space-between">
@@ -32,6 +34,7 @@
               type="text"
               class="textbox"
               placeholder="Link"
+              v-model="Link"
             /><!---->
           </div>
           <div class="row item-space-between">
@@ -41,6 +44,7 @@
               class="textbox"
               rows="7"
               placeholder="Add your note to your product"
+              v-model="Description"
             ></textarea>
           </div>
         </div>
@@ -55,6 +59,7 @@
             id="btn-close-modal"
             href="javascript:void(0)"
             class="btn btn-primary"
+            @click="addProductToList()"
             >Add</a
           >
         </div>
@@ -90,6 +95,7 @@ export default {
       } else {
         product.tags = [];
       }
+
     },
   },
 };

@@ -1,6 +1,10 @@
 <template>
   <div class="content-container">
     <div class="content">
+      <div class="header-menu-item" @click="showModal">
+        Create
+        <svg class="arrow-icon"></svg>
+      </div>
       <div class="quiz-box">
         <div class="quiz-content">
           <!-- Which of the following(s) is/are the nicknames of version(s) of
@@ -25,6 +29,7 @@
             :key="index"
             :product="product"
           ></product>
+          <Modal v-show="isModalVisible" @close="closeModal" />
         </div>
       </div>
     </div>
@@ -33,9 +38,29 @@
 
 <script>
 import Product from "./Product.vue";
+import Modal from "./Modal.vue";
+
 export default {
+  components: { Modal, Product },
+
+  methods: {
+    showModal() {
+      this.isModalVisible = true;
+    },
+    closeModal() {
+      this.isModalVisible = false;
+    },
+    addProduct() {
+      this.products.push(product)
+    }
+  },
+  props: {
+    product: Object
+  },
   data() {
     return {
+      isModalVisible: false,
+
       products: [
         {
           title: "Product 1",
@@ -94,7 +119,6 @@ export default {
       ],
     };
   },
-  components: { Product },
 };
 </script>
 
