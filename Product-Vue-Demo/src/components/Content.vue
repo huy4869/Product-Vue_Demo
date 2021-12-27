@@ -25,11 +25,24 @@
             </div>
           </nav> -->
           <product
-            v-for="(product, index) in products"
+            v-for="(product, index) in productPerPage"
             :key="index"
             :product="product"
           ></product>
-          <Modal v-show="isModalVisible" :products="products" @close="closeModal" />
+          <paging 
+            :productne="products" 
+            :pageSize="pageSize"
+            :currentPage="currentPage"
+            @current_Page="productPerPage"
+          ></paging>
+
+          <Modal
+            v-show="isModalVisible"
+            :products="products"
+            @close="closeModal"
+            @add-product="addProduct"
+          />
+day la {{currentPage}}
         </div>
       </div>
     </div>
@@ -39,9 +52,14 @@
 <script>
 import Product from "./Product.vue";
 import Modal from "./Modal.vue";
+import Paging from "./Paging.vue";
 
 export default {
-  components: { Modal, Product },
+  components: {
+    Modal,
+    Product,
+    Paging,
+  },
 
   methods: {
     showModal() {
@@ -50,6 +68,18 @@ export default {
     closeModal() {
       this.isModalVisible = false;
     },
+    addProduct(e) {
+      this.products.push(e);
+    },
+        productPerPage(currentPage) {
+      let begin = (currentPage - 1) * this.pageSize;
+      let end = currentPage * this.pageSize;
+      return this.products.slice(begin, end);
+    },
+  },
+  computed: {
+
+
   },
   data() {
     return {
@@ -111,6 +141,8 @@ export default {
           link: "Deserunt anim",
         },
       ],
+      pageSize: 6,
+      currentPage: 1,
     };
   },
 };

@@ -59,7 +59,7 @@
             id="btn-close-modal"
             href="javascript:void(0)"
             class="btn btn-primary"
-            @click="addProductToList()"
+            @click="addProductToList(product)"
             >Add</a
           >
         </div>
@@ -82,17 +82,18 @@ export default {
     };
   },
   props: {
-    products: Array
+    products: Array,
   },
   methods: {
     close() {
       this.$emit("close");
     },
     addProduct() {
-      this.products.push(this.product)
+      // this.products.push(this.product)  
+      this.$emit("add-product", this.product);
     },
-    addProductToList() {
-      let product = this.product;
+    addProductToList(product) {
+      // let product = this.product;
       let listTags = this.product.tag.split(/\s*, \s*/);
       if (listTags.length > 0) {
         product.tags = listTags.filter((item) => item != null && item != "");
@@ -101,7 +102,6 @@ export default {
       }
       this.addProduct();
       this.close();
-
     },
   },
 };
