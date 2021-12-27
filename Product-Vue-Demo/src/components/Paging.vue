@@ -26,8 +26,8 @@ export default {
   },
   methods: {
     changePage(number) {
-      // this.currentPage += number;
-      this.$emit("current_Page", (this.currentPage+= number));
+       this.currentPage += number;
+      this.$emit("changePage", this.currentPage);
     },
   },
   computed: {

@@ -33,8 +33,9 @@
             :productne="products" 
             :pageSize="pageSize"
             :currentPage="currentPage"
-            @current_Page="productPerPage"
+            @changePage="changePage"
           ></paging>
+day la {{currentPage}}
 
           <Modal
             v-show="isModalVisible"
@@ -42,7 +43,6 @@
             @close="closeModal"
             @add-product="addProduct"
           />
-day la {{currentPage}}
         </div>
       </div>
     </div>
@@ -71,14 +71,17 @@ export default {
     addProduct(e) {
       this.products.push(e);
     },
-        productPerPage(currentPage) {
-      let begin = (currentPage - 1) * this.pageSize;
-      let end = currentPage * this.pageSize;
-      return this.products.slice(begin, end);
-    },
+    changePage(currentPage) {
+this.currentPage = currentPage;
+    }
+
   },
   computed: {
-
+        productPerPage() {
+      let begin = (this.currentPage - 1) * this.pageSize;
+      let end = this.currentPage * this.pageSize;
+      return this.products.slice(begin, end);
+    },
 
   },
   data() {
