@@ -1,11 +1,10 @@
 <template>
   <div id="paging">
-    va day la {{pageSize}}
     <a v-if="currentPage > 1" href="javascript:void(0)" @click="changePage(-1)"
       >Previous</a
     >
     <div class="page">
-      <span>{{`${currentPage} Of ${pageNumber}`}}</span>
+      <span>{{ `${currentPage} Of ${pageNumber}` }}</span>
     </div>
     <a
       v-if="currentPage < pageNumber"
@@ -18,7 +17,6 @@
 
 <script>
 export default {
-
   props: {
     productne: Array,
     pageSize: Number,
@@ -26,7 +24,7 @@ export default {
   },
   methods: {
     changePage(number) {
-       this.currentPage += number;
+      this.currentPage += number;
       this.$emit("changePage", this.currentPage);
     },
   },
@@ -38,7 +36,6 @@ export default {
         return Math.floor(this.productne.length / this.pageSize) + 1;
       }
     },
-
   },
 };
 </script>
@@ -58,22 +55,23 @@ export default {
   opacity: 0.4;
 }
 #paging .page {
-  font-family: Josefin Sans;
   font-size: 14px;
   line-height: 22px;
   color: #8e949f;
   margin: 0px 20px 0px 20px;
+
 }
 #paging {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 30px;
+  position: relative;
+  top: 700px;
 
   /* Hover */
 }
 
-#paging .a {
+#paging a {
   width: 80px;
   height: 36px;
   padding: 0 14px;
@@ -90,7 +88,3 @@ export default {
   text-decoration: none;
 }
 </style>
-
-
-
-

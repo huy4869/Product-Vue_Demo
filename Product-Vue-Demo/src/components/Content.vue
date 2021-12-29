@@ -1,9 +1,11 @@
 <template>
   <div class="content-container">
     <div class="content">
-      <div class="header-menu-item" @click="showModal">
-        Create
-        <svg class="arrow-icon"></svg>
+      <div class="title_bar" data-v-be3178dc="">
+        <strong data-v-be3178dc="">Product Page</strong>
+        <a class="btn btn-primary" @click="showModal" href="javascript:void(0)"
+          >ADD PRODUCT</a
+        >
       </div>
       <div class="quiz-box">
         <div class="quiz-content">
@@ -29,22 +31,23 @@
             :key="index"
             :product="product"
           ></product>
-          <paging 
-            :productne="products" 
+
+
+
+        </div>
+      </div>
+                <paging
+            :productne="products"
             :pageSize="pageSize"
             :currentPage="currentPage"
             @changePage="changePage"
           ></paging>
-day la {{currentPage}}
-
-          <Modal
+                    <Modal
             v-show="isModalVisible"
             :products="products"
             @close="closeModal"
             @add-product="addProduct"
           />
-        </div>
-      </div>
     </div>
   </div>
 </template>
@@ -72,17 +75,15 @@ export default {
       this.products.push(e);
     },
     changePage(currentPage) {
-this.currentPage = currentPage;
-    }
-
+      this.currentPage = currentPage;
+    },
   },
   computed: {
-        productPerPage() {
+    productPerPage() {
       let begin = (this.currentPage - 1) * this.pageSize;
       let end = this.currentPage * this.pageSize;
       return this.products.slice(begin, end);
     },
-
   },
   data() {
     return {
@@ -143,6 +144,18 @@ this.currentPage = currentPage;
           tags: ["tag 1", "tag 2"],
           link: "Deserunt anim",
         },
+        {
+          title: "Product 10",
+          description: "Description",
+          tags: ["tag 1", "tag 2"],
+          link: "Deserunt anim",
+        },
+        {
+          title: "Product 11",
+          description: "Description",
+          tags: ["tag 1", "tag 2"],
+          link: "Deserunt anim",
+        },
       ],
       pageSize: 6,
       currentPage: 1,
@@ -154,20 +167,20 @@ this.currentPage = currentPage;
 <style scoped>
 .content {
   position: absolute;
-  top: 62px;
+  top: 64px;
   left: 288px;
   width: 1152px;
-  height: 836px;
+  height: 834px;
   background: #ffffffff;
   border-radius: 0px;
-  box-shadow: 0px 2px 11px #333a47, 0px 0px 2px #333a47;
+  box-shadow: 0px 2px 7px #333a47, 0px 0px 0px #333a47;
 }
 /* Container 5 */
 .quiz-box {
   position: absolute;
-  top: 72px;
+  top: 92px;
   left: 88px;
-  width: 960px;
+  width: 1020px;
   height: 614px;
   background: #ffffffff;
   border-radius: 6px;
@@ -185,5 +198,37 @@ this.currentPage = currentPage;
   font-size: 22px;
   line-height: 34px;
   color: #21262eff;
+}
+
+.btn {
+  padding: 10px 18px;
+  align-items: center;
+  justify-content: center;
+  font-family: Josefin Sans;
+  font-size: 16px;
+  line-height: 16px;
+  border: none;
+  border-radius: 6px;
+  text-decoration: none;
+}
+.title_bar {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 40px 0px 60px ;
+}
+strong {
+  font-size: 32px;
+  line-height: 42px;
+  color: #3a414d;
+  font-weight: bold;
+}
+.btn-primary {
+    color: #fff;
+    background: #56b4b8;
+}
+
+.quiz-content {
+      display: grid;
+      grid-template-columns: auto auto;
 }
 </style>
