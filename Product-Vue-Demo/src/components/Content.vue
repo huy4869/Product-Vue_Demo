@@ -74,8 +74,8 @@ export default {
     addProduct(e) {
       this.products.push(e);
     },
-    changePage(currentPage) {
-      this.currentPage = currentPage;
+    changePage(currentPage, number) {
+      this.currentPage = currentPage+ number;
     },
   },
   computed: {

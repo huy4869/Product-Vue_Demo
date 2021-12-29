@@ -24,14 +24,14 @@ export default {
   },
   methods: {
     changePage(number) {
-      this.currentPage += number;
-      this.$emit("changePage", this.currentPage);
+      // this.currentPage += number;
+      this.$emit("changePage", this.currentPage, number);
     },
   },
   computed: {
     pageNumber() {
       if (this.productne.length % this.pageSize == 0) {
-        return this.productne / this.pageSize;
+        return this.productne.length / this.pageSize;
       } else {
         return Math.floor(this.productne.length / this.pageSize) + 1;
       }
