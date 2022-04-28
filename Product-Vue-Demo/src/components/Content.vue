@@ -31,23 +31,20 @@
             :key="index"
             :product="product"
           ></product>
-
-
-
         </div>
       </div>
-                <paging
-            :productne="products"
-            :pageSize="pageSize"
-            :currentPage="currentPage"
-            @changePage="changePage"
-          ></paging>
-                    <Modal
-            v-show="isModalVisible"
-            :products="products"
-            @close="closeModal"
-            @add-product="addProduct"
-          />
+      <paging
+        :productne="products"
+        :pageSize="pageSize"
+        :currentPage="currentPage"
+        @changePage="changePage"
+      ></paging>
+      <Modal
+        v-show="isModalVisible"
+        :products="products"
+        @close="closeModal"
+        @add-product="addProduct"
+      />
     </div>
   </div>
 </template>
@@ -150,12 +147,7 @@ export default {
           tags: ["tag 1", "tag 2"],
           link: "Deserunt anim",
         },
-        {
-          title: "Product 11",
-          description: "Description",
-          tags: ["tag 1", "tag 2"],
-          link: "Deserunt anim",
-        },
+        
       ],
       pageSize: 6,
       currentPage: 1,
@@ -214,7 +206,7 @@ export default {
 .title_bar {
   display: flex;
   justify-content: space-between;
-  margin: 20px 40px 0px 60px ;
+  margin: 20px 40px 0px 60px;
 }
 strong {
   font-size: 32px;
@@ -223,12 +215,12 @@ strong {
   font-weight: bold;
 }
 .btn-primary {
-    color: #fff;
-    background: #56b4b8;
+  color: #fff;
+  background: #56b4b8;
 }
 
 .quiz-content {
-      display: grid;
-      grid-template-columns: auto auto;
+  display: grid;
+  grid-template-columns: auto auto;
 }
 </style>

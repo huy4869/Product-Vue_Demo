@@ -11,7 +11,7 @@
           <svg class="arrow-icon"></svg>
         </div>
 
-        <div class="header-menu-item" @click="showModal">
+        <div class="header-menu-item" >
           Create
           <svg class="arrow-icon"></svg>
         </div>

@@ -31,8 +31,12 @@ export default {
   computed: {
     pageNumber() {
       if (this.productne.length % this.pageSize == 0) {
-        return this.productne / this.pageSize;
+        console.log(this.productne.length);
+        console.log(this.pageSize);
+        console.log(this.productne / this.pageSize);
+        return this.productne.length / this.pageSize;
       } else {
+
         return Math.floor(this.productne.length / this.pageSize) + 1;
       }
     },
@@ -59,7 +63,6 @@ export default {
   line-height: 22px;
   color: #8e949f;
   margin: 0px 20px 0px 20px;
-
 }
 #paging {
   display: flex;
