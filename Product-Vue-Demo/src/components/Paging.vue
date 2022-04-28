@@ -24,16 +24,19 @@ export default {
   },
   methods: {
     changePage(number) {
-      this.currentPage += number;
-      this.$emit("changePage", this.currentPage);
+      // this.currentPage += number;
+      this.$emit("changePage", this.currentPage, number);
     },
   },
   computed: {
     pageNumber() {
       if (this.productne.length % this.pageSize == 0) {
+<<<<<<< HEAD
         console.log(this.productne.length);
         console.log(this.pageSize);
         console.log(this.productne / this.pageSize);
+=======
+>>>>>>> bbd7e27206ad1af0f11c5ca909cd0f4fe7c32de1
         return this.productne.length / this.pageSize;
       } else {
 
