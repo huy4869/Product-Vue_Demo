@@ -72,7 +72,7 @@ export default {
       this.products.push(e);
     },
     changePage(currentPage, number) {
-      this.currentPage = currentPage+ number;
+      this.currentPage = currentPage + number;
     },
   },
   computed: {
@@ -147,7 +147,12 @@ export default {
           tags: ["tag 1", "tag 2"],
           link: "Deserunt anim",
         },
-        
+        {
+          title: "Product 11",
+          description: "Description",
+          tags: ["tag 1", "tag 2"],
+          link: "Deserunt anim",
+        },
       ],
       pageSize: 6,
       currentPage: 1,
